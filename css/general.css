@@ -34,14 +34,18 @@ LETTER-SPACING
 - Tints (Darker version) 
 #fdf2e9
 #fae5d3
+#eb984e
 
 
 - Shades(Lighter version)
 :#cf711f
+#45260a
 
 - Accents:
 
-- Greys             
+- Greys 
+#888
+#767676  (lightest grey allowd on #fff)            
 #6f6f6f  (lightest grey allowed on #fdf2e9)   
 #555
 #333
@@ -55,6 +59,7 @@ LETTER-SPACING
 - No specify items.
 
 ---05-SHADOWS:
+  0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 - Thers nothing here
 
 ---06- BORDER-RADIUS
@@ -102,8 +107,17 @@ body {
 
 .grid {
   display: grid;
-  gap: 9.6rem;
-  grid-template-columns: repeat(2, 1fr);
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
 }
 
 .grid--2-cols {
@@ -112,6 +126,14 @@ body {
 
 .grid--3-cols {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .heading-primary,
@@ -152,10 +174,11 @@ body {
   letter-spacing: 0.75px;
 }
 
+.btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
-  background-color: #e67e22;
+  /* background-color: #e67e22; */
   font-size: 2rem;
   font-weight: 600;
 
@@ -163,8 +186,25 @@ body {
   border-radius: 9px;
   text-decoration: none;
 
+  /* Only neccessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
   /* Put transition on original state */
   transition: all 0.3s;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fdf2e9;
+  color: #555;
 }
 
 .btn--full:link,
@@ -224,6 +264,13 @@ body {
   height: 3rem;
   width: 3rem;
   color: #e67e22;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22; */
+  /* outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
 }
 
 /* HELPER/SETTING CLASSES */
